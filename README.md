@@ -93,27 +93,27 @@
 
 # SQLs
 ## 1. Sales reps from Seattle or Redmond:
-SELECT first_name, last_name
-FROM employees
-WHERE city IN ('Seattle', 'Redmond')
-AND title = 'Sales Representative';
+    SELECT first_name, last_name
+    FROM employees
+    WHERE city IN ('Seattle', 'Redmond')
+    AND title = 'Sales Representative';
 ## 2. Total units ordered for product ID 3:
-SELECT SUM(quantity) AS total_units
-FROM order_details
-WHERE product_id = 3;
+    SELECT SUM(quantity) AS total_units
+    FROM order_details
+    WHERE product_id = 3;
 ## 3. City name and number of employees in each city:
-SELECT city, COUNT(*) AS num_employees
-FROM employees
-GROUP BY city
-ORDER BY num_employees DESC;
+    SELECT city, COUNT(*) AS num_employees
+    FROM employees
+    GROUP BY city
+    ORDER BY num_employees DESC;
 ## 4. Companies that placed orders in 1997:
-SELECT DISTINCT c.company_name
-FROM customers c
-JOIN orders o ON c.customer_id = o.customer_id
-WHERE EXTRACT(YEAR FROM o.order_date) = 1997
-ORDER BY c.company_name;
+    SELECT DISTINCT c.company_name
+    FROM customers c
+    JOIN orders o ON c.customer_id = o.customer_id
+    WHERE EXTRACT(YEAR FROM o.order_date) = 1997
+    ORDER BY c.company_name;
 ## 5. All orders made by employees:
-SELECT e.first_name, e.last_name, o.order_id, o.order_date, o.ship_country
-FROM employees e
-JOIN orders o ON e.employee_id = o.employee_id
-ORDER BY e.last_name, o.order_date;
+    SELECT e.first_name, e.last_name, o.order_id, o.order_date, o.ship_country
+    FROM employees e
+    JOIN orders o ON e.employee_id = o.employee_id
+    ORDER BY e.last_name, o.order_date;
