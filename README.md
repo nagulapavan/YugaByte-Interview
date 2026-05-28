@@ -44,7 +44,7 @@
 ### Connect via YSQL
     docker exec -it yugabyte-node1 bin/ysqlsh -h yugabyte-node1 -U yugabyte
 
-# Create DB Obhects and load data
+# Create DB Objects and load data
 ### Create the Northwind database
     To create the Northwind database, run the following CREATE DATABASE statement.
     CREATE DATABASE northwind;
