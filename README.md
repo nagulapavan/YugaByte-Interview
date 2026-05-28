@@ -44,6 +44,53 @@
 ### Connect via YSQL
     docker exec -it yugabyte-node1 bin/ysqlsh -h yugabyte-node1 -U yugabyte
 
+# Create DB Obhects and load data
+### Create the Northwind database
+    To create the Northwind database, run the following CREATE DATABASE statement.
+    CREATE DATABASE northwind;
+    Confirm that you have the Northwind database by listing the databases on your cluster.
+    yugabyte=# \l
+    Connect to the Northwind database.
+    yugabyte=# \c northwind
+### Build the tables and objects
+    To build the tables and database objects, execute the northwind_ddl.sql SQL script.
+    northwind=# \i share/northwind_ddl.sql
+    You can verify that all 14 tables have been created by running the \d command.
+    northwind=# \d
+
+                List of relations
+     Schema |          Name          | Type  | Owner
+    --------+------------------------+-------+-------
+     public | categories             | table | admin
+     public | customer_customer_demo | table | admin
+     public | customer_demographics  | table | admin
+     public | customers              | table | admin
+     public | employee_territories   | table | admin
+     public | employees              | table | admin
+     public | order_details          | table | admin
+     public | orders                 | table | admin
+     public | products               | table | admin
+     public | region                 | table | admin
+     public | shippers               | table | admin
+     public | suppliers              | table | admin
+     public | territories            | table | admin
+     public | us_states              | table | admin
+    (14 rows)
+    Load the sample data
+    To load the northwind database with sample data, run the \i command to execute commands in the northwind_data.sql file.
+
+    northwind=# \i share/northwind_data.sql
+
+    To verify that you have some data to work with, you can run a simple SELECT statement to pull data from the customers table.
+
+    northwind=# SELECT * FROM customers LIMIT 2;
+
+     customer_id |       company_name        | contact_name |    contact_title    |      address       |   city    | region | postal_code | country |     phone     |     fax
+    -------------+---------------------------+--------------+---------------------+--------------------+-----------+--------+-------------+---------+---------------+-------------
+     FAMIA       | Familia Arquibaldo        | Aria Cruz    | Marketing Assistant | Rua Orós, 92       | Sao Paulo | SP     | 05442-030   | Brazil  | (11) 555-9857 |
+     VINET       | Vins et alcools Chevalier | Paul Henriot | Accounting Manager  | 59 rue de l'Abbaye | Reims     |        | 51100       | France  | 26.47.15.10   | 26.47.15.11
+    (2 rows)
+
 # SQLs
 ## 1. Sales reps from Seattle or Redmond:
 SELECT first_name, last_name
