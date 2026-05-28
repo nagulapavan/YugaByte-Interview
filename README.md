@@ -10,7 +10,7 @@
       yugabytedb/yugabyte:2025.2.3.0-b149 \
       bin/yugabyted start \
       --advertise_address=yugabyte-node1 \
-      --cloud_location=aws.us-east-2.us-east-2a \
+      --cloud_location=local.mac.node1 \
       --background=false
 
 ### Start Node 2 
@@ -20,7 +20,7 @@
       bin/yugabyted start \
       --advertise_address=yugabyte-node2 \
       --join=yugabyte-node1 \
-      --cloud_location=aws.us-east-2.us-east-2b \
+      --cloud_location=aws.local.mac.node2 \
       --background=false
 
 ### Start Node 3 
@@ -30,7 +30,7 @@
       bin/yugabyted start \
       --advertise_address=yugabyte-node3 \
       --join=yugabyte-node1 \
-      --cloud_location=aws.us-east-2.us-east-2c \
+      --cloud_location=aws.local.mac.node3 \
       --background=false
     
 ### Verify cluster - shows 3 ALIVE masters
