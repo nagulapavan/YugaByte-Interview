@@ -76,7 +76,7 @@
      public | territories            | table | admin
      public | us_states              | table | admin
     (14 rows)
-    Load the sample data
+### Load the sample data
     To load the northwind database with sample data, run the \i command to execute commands in the northwind_data.sql file.
 
     northwind=# \i share/northwind_data.sql
