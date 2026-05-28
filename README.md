@@ -1,12 +1,8 @@
 # YugaByte-Interview
 
 This repo contain Docker commands to install 3 node cluster and set of YB commands to create database and load data. Also 5 SQLs to answer the queries
-# Docker commands to install 3 node YB cluster
-Here are all the Docker commands that worked for your 3-node YugabyteDB cluster:
-bash# Add Docker to PATH
-export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin"
 
-# Installation
+# Installation of 3-node YB cluster
 
 ### Create network
     docker network create yugabyte-network
