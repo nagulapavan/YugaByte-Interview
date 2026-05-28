@@ -1,8 +1,4 @@
-# YugaByte-Interview
-
-This repo contain Docker commands to install 3 node cluster and set of YB commands to create database and load data. Also 5 SQLs to answer the queries
-
-# Installation of 3-node YB cluster
+# Installation of 3-node YugaByte cluster
 
 ### Create network
     docker network create yugabyte-network
