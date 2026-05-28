@@ -3,7 +3,7 @@
 ### Create network
     docker network create yugabyte-network
 
-### Start Node 1 (foreground - keep this terminal open)
+### Start Node 1 
     docker run --name yugabyte-node1 \
       --network yugabyte-network \
       -p 15433:15433 -p 5434:5433 \
@@ -13,7 +13,7 @@
       --cloud_location=aws.us-east-2.us-east-2a \
       --background=false
 
-### Start Node 2 (new terminal)
+### Start Node 2 
     docker run -d --name yugabyte-node2 \
       --network yugabyte-network \
       yugabytedb/yugabyte:2025.2.3.0-b149 \
@@ -23,7 +23,7 @@
       --cloud_location=aws.us-east-2.us-east-2b \
       --background=false
 
-### Start Node 3 (new terminal)
+### Start Node 3 
     docker run -d --name yugabyte-node3 \
       --network yugabyte-network \
       yugabytedb/yugabyte:2025.2.3.0-b149 \
@@ -33,7 +33,7 @@
       --cloud_location=aws.us-east-2.us-east-2c \
       --background=false
     
-### Verify cluster - should show 3 ALIVE masters
+### Verify cluster - shows 3 ALIVE masters
     docker exec -it yugabyte-node1 \
       bin/yb-admin --master_addresses=yugabyte-node1:7100 list_all_masters
 #### Results
